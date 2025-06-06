@@ -1,6 +1,34 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import datetime
+
+# from functions import get_current_weekday, calculate_nfl_week, get_next_sunday, get_current_year
+
+def create_subtitle(text, emphasis=True):
+    if emphasis:
+        return f"<h3 style='color: black; font-weight: bold;'>{text}</h3>"
+    else:
+        return f"<h3 style='color: black;'>{text}</h3>"
+
+        
+# day = get_current_weekday()
+# date_string = get_next_sunday(day)
+# week = 22 #calculate_nfl_week(date_string)
+year = datetime.datetime.today().year
+
+# # Initialize lists for exclusions and locks
+# exclude_list = []
+# lock_list = []
+# exclude_teams = []
+
+st.title(f"Mike Batista's {str(year)} Fantasy Football Draft Rankings")
+# col1, col2 = st.columns(2)
+
+idp_df = pd.read_csv('idp_dynasty_preds_25.csv')
+
+
+st.dataframe(idp_df)
 
 # from functions import get_current_weekday, calculate_nfl_week, get_next_sunday, get_current_year
 
